@@ -1,12 +1,12 @@
 package org.demre.ei02m6registroconsumo.data.local
 
-import android.content.ClipData
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+
 //Contiene la base de datos y sirve como punto de acceso a los datos persistentes de la app
-@Database(entities = [ClipData.Item::class], version = 1)
+@Database (entities = [Item::class], version = 1)
 abstract class DataBase : RoomDatabase() {
     abstract fun getItemDao(): ItemDao
 

@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    //id("kotlin-kapt")
+
+
 }
 
 android {
@@ -55,6 +58,8 @@ dependencies {
     implementation ("androidx.room:room-ktx:$roomVersion")
     annotationProcessor ("androidx.room:room-compiler:$roomVersion")
     ksp ("androidx.room:room-compiler:$roomVersion")
+    //kapt("androidx.room:room-compiler:$roomVersion")
+
 
     // Navigation
     val navVersion = "2.6.0"
