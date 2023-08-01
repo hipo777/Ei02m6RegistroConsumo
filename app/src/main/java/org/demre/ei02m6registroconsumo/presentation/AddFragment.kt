@@ -5,14 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import org.demre.ei02m6registroconsumo.data.local.Item
 import org.demre.ei02m6registroconsumo.databinding.FragmentAddBinding
 
 class AddFragment : Fragment() {
-
     private lateinit var binding: FragmentAddBinding
-
     private val viewModel: ItemsViewModel by activityViewModels()
+    private lateinit var tvPrecioTotal: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,14 @@ class AddFragment : Fragment() {
         picker.maxValue = maxValue
         picker.value = default
 
+
+        tvPrecioTotal = binding.tvTotal
+
+        viewModel.getAllItems().observe(viewLifecycleOwner, Observer<List<Item>>{ item->
+            calcularTotal(item)
+        })
+
+
         initListener()
         return binding.root
     }
@@ -41,5 +51,13 @@ class AddFragment : Fragment() {
 
             viewModel.insertItem(nombre, precio, cantidad )
         }
+    }
+
+    private fun calcularTotal(item: List<Item>){
+        var precioTotal = 0
+        for (item in item) {
+            precioTotal += item.precio * item.cantidad
+        }
+        tvPrecioTotal.text = precioTotal.toString()
     }
 }
