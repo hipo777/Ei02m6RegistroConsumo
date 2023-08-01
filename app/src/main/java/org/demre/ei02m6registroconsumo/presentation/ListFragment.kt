@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import org.demre.ei02m6registroconsumo.R
 import org.demre.ei02m6registroconsumo.databinding.FragmentAddBinding
 import org.demre.ei02m6registroconsumo.databinding.FragmentListBinding
@@ -21,6 +22,10 @@ class ListFragment : Fragment() {
     ): View? {
 
         binding = FragmentListBinding.inflate(inflater, container, false)
+
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_addFragment)
+        }
 
         initLista()
 

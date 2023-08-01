@@ -7,7 +7,6 @@ import org.demre.ei02m6registroconsumo.data.local.Item
 import org.demre.ei02m6registroconsumo.databinding.ItemRecyclerBinding
 
 class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-    //lateinit var binding: ItemRecyclerBinding
     private val listItem = mutableListOf<Item>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

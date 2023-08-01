@@ -40,10 +40,6 @@ class AddFragment : Fragment() {
             val cantidad = binding.picker.value
 
             viewModel.insertItem(nombre, precio, cantidad )
-
-            //showSuccessfulMessage()
-            //cleanUI()
         }
     }
-
 }
