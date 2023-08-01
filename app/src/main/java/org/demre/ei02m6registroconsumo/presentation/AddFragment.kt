@@ -20,6 +20,7 @@ class AddFragment : Fragment() {
     ): View {
         binding = FragmentAddBinding.inflate(inflater, container, false)
 
+        //Información necesaria para el Number Picker
         val picker = binding.picker
         val minValue = 1
         val maxValue = 100
