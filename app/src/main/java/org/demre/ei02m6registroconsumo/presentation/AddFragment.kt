@@ -33,9 +33,9 @@ class AddFragment : Fragment() {
 
 
         tvPrecioTotal = binding.tvTotal
-
+        //Se realiza la observación de una lista de elementos (List<Item>) dentro de un ViewModel (viewModel)
         viewModel.getAllItems().observe(viewLifecycleOwner, Observer<List<Item>>{ item->
-            calcularTotal(item)
+            tvPrecioTotal.text = viewModel.calcularTotal(item)
         })
 
 
@@ -51,13 +51,5 @@ class AddFragment : Fragment() {
 
             viewModel.insertItem(nombre, precio, cantidad )
         }
-    }
-
-    private fun calcularTotal(item: List<Item>){
-        var precioTotal = 0
-        for (item in item) {
-            precioTotal += item.precio * item.cantidad
-        }
-        tvPrecioTotal.text = precioTotal.toString()
     }
 }

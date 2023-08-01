@@ -23,4 +23,11 @@ class ItemsViewModel(application: Application) : AndroidViewModel(application) {
         val item = Item( nombre, precio, cantidad)
         repositorio.insertItem(item)
     }
+    fun calcularTotal(item: List<Item>):String{
+        var precioTotal = 0
+        for (item in item) {
+            precioTotal += item.precio * item.cantidad
+        }
+        return precioTotal.toString()
+    }
 }
